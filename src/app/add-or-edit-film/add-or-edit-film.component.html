@@ -1,0 +1,8 @@
+<p>TO DELETE : addOrEditFilm component</p>
+
+<form [formGroup]="filmForm" (ngSubmit)="save()">
+    <input type="text" formControlName="title">
+    <textarea type="text" formControlName="synopsis"></textarea>
+    <input type="number" formControlName="rating">
+    <button type="submit" [disabled]="filmForm.invalid">SUBMIT</button>
+</form>
