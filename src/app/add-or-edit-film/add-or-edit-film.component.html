@@ -1,8 +1,24 @@
-<p>TO DELETE : addOrEditFilm component</p>
+<H1>Ajouter ou modifier un film</H1>
 
 <form [formGroup]="filmForm" (ngSubmit)="save()">
-    <input type="text" formControlName="title">
-    <textarea type="text" formControlName="synopsis"></textarea>
-    <input type="number" formControlName="rating">
-    <button type="submit" [disabled]="filmForm.invalid">SUBMIT</button>
+    <div class="form-group">
+        <label for="filmTitle">Titre du film</label>
+        <input type="text" class="form-control" formControlName="title">
+    <div class="form-group">
+        <label for="filmDescription">Description</label>
+        <textarea type="text" class="form-control"  formControlName="synopsis"></textarea>
+    </div>
+    <div class="form-group">    
+        <label for="filmRating"> Note </label>
+        <input type="number" class="form-control" formControlName="rating">
+    </div>
+        <button type="submit" [disabled]="filmForm.invalid" class="btn btn-primary">SUBMIT</button>
+    </div> 
+    <div>
+    <button type="submit" class="btn btn-primary" (click)="printFilm()">Load film to edit</button> 
+</div>
 </form>
+
+<br>
+<hr class="my-4">
+<br>

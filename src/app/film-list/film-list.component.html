@@ -1,7 +1,24 @@
-<p>film-list works!</p>
+<h1>Liste des films</h1>
 
-<tr *ngFor="let film of filmsToDisplay">
-    <td>{{film.title}}</td>
-    <td>{{film.synopsys}}</td>
-    <td>{{film.rating}}</td>
-</tr>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of filmsToDisplay; let i = index">
+        <th scope="row">i</th>
+        <td>{{film.title}}</td>
+        <td>{{film.synopsys}}</td>
+        <td>{{film.rating}}</td>
+        <button (click)="editFilm(film)" class="btn btn-outline-primary"> edit </button>
+        <button (click)="remove(i)" class="btn btn-outline-primary"> delete </button>
+      </tr>
+
+    </tbody>
+  </table>
+

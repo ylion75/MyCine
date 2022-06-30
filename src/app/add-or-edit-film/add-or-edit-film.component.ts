@@ -1,6 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Film } from '../@shared/models/film';
+import { FilmService } from '../@shared/services/film.service';
 
 @Component({
   selector: 'app-add-or-edit-film',
@@ -15,8 +17,21 @@ export class AddOrEditFilmComponent implements OnInit {
   })
  
   @Output() onSave: EventEmitter<Film> = new EventEmitter<Film>();
+  @Input() filmToEdit!: Film;
+  //rajouter l'input avec le film à éditer
 
-  constructor() { }
+  /*
+  film!:Film;
+  editFilm($event: any){
+    this.film = $event;
+  }
+  */
+ printFilm(){
+   console.log(this.filmToEdit);
+ }
+
+  constructor(public filmService: FilmService, private router: Router) 
+  { }
 
   ngOnInit(): void {
   }

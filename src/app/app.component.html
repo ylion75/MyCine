@@ -1,16 +1,3 @@
-<!-- Display components here 
-<app-add-or-edit-film></app-add-or-edit-film>
-<app-add-or-edit-film (filmEvent)="receiveFilm($event)"></app-add-or-edit-film>
--->
 
-<app-add-or-edit-film (onSave)="addOrEditFilm($event)"></app-add-or-edit-film>
-<p>TO DELETE : app component</p>
-Film : {{films}}
-<tr *ngFor="let film of films">
-    <td>{{film.title}}</td>
-    <td>{{film.synopsys}}</td>
-    <td>{{film.rating}}</td>
-</tr>
-
-<p>TO DELETE : film component</p>
-<app-film-list [filmsToDisplay]="parentFilms"></app-film-list>
+<app-add-or-edit-film [filmToEdit]="film" (onSave)="addOrEditFilm($event)"></app-add-or-edit-film>
+<app-film-list [filmsToDisplay]="filmList" (onClick)="editFilm($event)"></app-film-list>
